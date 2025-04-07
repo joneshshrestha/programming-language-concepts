@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuite hostname="MacBookAir.attlocal.net" name="fp1tests" tests="10" errors="0" failures="0" skipped="0" time="0.048" timestamp="2025-04-07T17:12:23">
+          <properties>
+      <property name="java.specification.version" value="23"/><property name="sun.jnu.encoding" value="UTF-8"/><property name="java.class.path" value="/Users/joneshshrestha/Library/Caches/Coursier/arc/https/github.com/sbt/sbt/releases/download/v1.10.11/sbt-1.10.11.zip/sbt/bin/sbt-launch.jar"/><property name="java.vm.vendor" value="Oracle Corporation"/><property name="sun.arch.data.model" value="64"/><property name="jline.shutdownhook" value="false"/><property name="java.vendor.url" value="https://java.oracle.com/"/><property name="user.timezone" value="America/Chicago"/><property name="java.vm.specification.version" value="23"/><property name="os.name" value="Mac OS X"/><property name="sun.java.launcher" value="SUN_STANDARD"/><property name="user.country" value="US"/><property name="sun.boot.library.path" value="/Users/joneshshrestha/Library/Java/JavaVirtualMachines/openjdk-23.0.2/Contents/Home/lib"/><property name="sun.java.command" value="/Users/joneshshrestha/Library/Caches/Coursier/arc/https/github.com/sbt/sbt/releases/download/v1.10.11/sbt-1.10.11.zip/sbt/bin/sbt-launch.jar"/><property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="jdk.debug" value="release"/><property name="sun.cpu.endian" value="little"/><property name="user.home" value="/Users/joneshshrestha"/><property name="user.language" value="en"/><property name="sbt.script" value="/Users/joneshshrestha/Library/Caches/Coursier/arc/https/github.com/sbt/sbt/releases/download/v1.10.11/sbt-1.10.11.zip/sbt/bin/sbt"/><property name="java.specification.vendor" value="Oracle Corporation"/><property name="sbt.ipcsocket.tmpdir" value="/var/folders/gq/lkhv3sgd2h72n5zgx65bmryh0000gn/T/.sbt16b7be45/ipcsocket"/><property name="swoval.tmpdir" value="/var/folders/gq/lkhv3sgd2h72n5zgx65bmryh0000gn/T/.sbt16b7be45/swoval"/><property name="java.version.date" value="2025-01-21"/><property name="java.home" value="/Users/joneshshrestha/Library/Java/JavaVirtualMachines/openjdk-23.0.2/Contents/Home"/><property name="file.separator" value="/"/><property name="java.vm.compressedOopsMode" value="Zero based"/><property name="line.separator" value="
+"/><property name="java.vm.specification.vendor" value="Oracle Corporation"/><property name="java.specification.name" value="Java Platform API Specification"/><property name="apple.awt.application.name" value="Boot"/><property name="jline.esc.timeout" value="0"/><property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/><property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="java.runtime.version" value="23.0.2+7-58"/><property name="user.name" value="joneshshrestha"/><property name="stdout.encoding" value="UTF-8"/><property name="path.separator" value=":"/><property name="os.version" value="15.3.2"/><property name="jna.nosys" value="true"/><property name="java.runtime.name" value="OpenJDK Runtime Environment"/><property name="log4j.ignoreTCL" value="true"/><property name="file.encoding" value="UTF-8"/><property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/><property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/><property name="java.io.tmpdir" value="/var/folders/gq/lkhv3sgd2h72n5zgx65bmryh0000gn/T/"/><property name="java.version" value="23.0.2"/><property name="user.dir" value="/Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development"/><property name="os.arch" value="aarch64"/><property name="java.vm.specification.name" value="Java Virtual Machine Specification"/><property name="native.encoding" value="UTF-8"/><property name="java.library.path" value="/Users/joneshshrestha/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/><property name="java.vm.info" value="mixed mode, sharing"/><property name="stderr.encoding" value="UTF-8"/><property name="java.vendor" value="Oracle Corporation"/><property name="java.vm.version" value="23.0.2+7-58"/><property name="scala.ext.dirs" value="/Users/joneshshrestha/.sbt/1.0/java9-rt-ext-oracle_corporation_23_0_2"/><property name="sun.io.unicode.encoding" value="UnicodeBig"/><property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/><property name="java.class.version" value="67.0"/>
+    </properties>
+          <testcase classname="fp1tests" name="EX01 - factTest" time="0.032">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX02 - fib" time="0.01">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX03 - sum" time="0.0">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX04 - sumTail" time="0.0">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX05 - maxList" time="0.003">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX06 - maxTailAux" time="0.0">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX07 - zip" time="0.002">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX08 - insert" time="0.001">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX09 - merge" time="0.0">
+                      
+                    </testcase><testcase classname="fp1tests" name="EX10 - reverseTail" time="0.0">
+                      
+                    </testcase>
+          <system-out><![CDATA[]]></system-out>
+          <system-err><![CDATA[]]></system-err>
+        </testsuite>

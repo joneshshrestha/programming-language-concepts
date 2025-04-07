@@ -1,0 +1,4 @@
+[debug] [scala-development-test] Classpath dependencies List()
+[debug] [scala-development-test] Dependencies from configurations List(scala-development)
+[debug] Bloop wrote the configuration of project 'scala-development-test' to '/Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/.bloop/scala-development-test.json'
+[success] Generated .bloop/scala-development-test.json

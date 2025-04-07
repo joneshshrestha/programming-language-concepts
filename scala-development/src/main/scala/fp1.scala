@@ -1,12 +1,12 @@
-  // GENERATED
+// GENERATED
 /* INSTRUCTIONS
  *
  * Complete the exercises below.  For each "EXERCISE" comment, add code
  * immediately below the comment.
  *
  * Please see README.md for instructions, including compilation and testing.
- * See fp1tests.scala for examples of the expected behavior.  Note that the 
- * tests are not exhaustive -- your code may still be incorrect even if all 
+ * See fp1tests.scala for examples of the expected behavior.  Note that the
+ * tests are not exhaustive -- your code may still be incorrect even if all
  * tests pass.  But passing the tests is a good sign that you are on the right
  * track.
  *
@@ -23,9 +23,9 @@
  * 3. You MUST NOT use while loops or (re)assignment to variables (you can use
  *    "val" declarations, but not "var" declarations).  You must use recursion
  *    instead.  You may declare auxiliary functions if you like.
- * 
+ *
  * 4. You MUST NOT alter any of the provided code, except for the parts explicitly
- *    marked ???.  You may ADD methods (including a main method, if you like).  
+ *    marked ???.  You may ADD methods (including a main method, if you like).
  *    But don't change the signature of provided functions, or remove them.
  *
  * SUBMISSION
@@ -33,7 +33,7 @@
  * 1. Submit this file on D2L before the deadline.
  *
  * 2. Late submissions will not be permitted.
- * 
+ *
  * 3. You may submit multiple times.  I will grade the LAST submission.
  *
  */
@@ -43,7 +43,7 @@ object fp1:
   // Here is a utility function for logging recursive functions.
   // It may be helpful while debugging.
   var doLog = false
-  def log[X](prefix: String, d:Int=0)(computeResult: => X) =
+  def log[X](prefix: String, d: Int = 0)(computeResult: => X) =
     if doLog then
       val indent = "  " * d
       println(s"${indent}${prefix}")
@@ -70,8 +70,7 @@ object fp1:
   def factLogIndent(n: Int, d: Int = 0): Int =
     log(s"fact($n)", d):
       if n <= 1 then 1
-      else n * factLogIndent(n - 1, d + 1)      
-
+      else n * factLogIndent(n - 1, d + 1)
 
   // Note that the fact computes as follows (leaving out some steps):
   //
@@ -107,8 +106,10 @@ object fp1:
   // You must call the "fact" function (five times) defined above instead of
   // hardcoding the numbers 1,2,6,24,120.
   val factTest: List[Int] =
-    // TODO: Replace Nil your answer.
-    Nil
+    def createList(n: Int): List[Int] =
+      if n == 0 then Nil
+      else createList(n - 1) :+ fact(n)
+    createList(5)
 
   // EXERCISE 2: complete the following definition of the Fibonacci function.
   // You can use the mathematical definition of Fib:
@@ -118,16 +119,17 @@ object fp1:
   // fib(1) == 1
   // fib(n) == fib(n-1) + fib(n-2), if n>1
   def fib(n: Int): Int =
-    // TODO: Replace ??? your answer.
-    ???
-
+    n match
+      case 0          => 0
+      case 1          => 1
+      case n if n > 1 => fib(n - 1) + fib(n - 2)
 
   // EXERCISE 3: write a function "sum" that takes a list of integers and
   // sums them.  If the list is empty, the sum is zero.
   def sum(xs: List[Int]): Int =
-    // TODO: Replace ??? your answer.
-    ???
-
+    xs match
+      case Nil     => 0
+      case y :: ys => y + sum(ys)
 
   // EXERCISE 4: given the definition of the function "sumTailAux" below,
   // complete the definition of the function "sumTail" so that it also sums a
@@ -139,15 +141,13 @@ object fp1:
   // Your definition for "sumTail" must call "sumTailAux" directly, and must
   // not call "sum"
   def sumTailAux(xs: List[Int], z: Int): Int =
-    //log(s"sumTailAux($xs, $z)"):
-      xs match
-        case Nil     => z
-        case x :: xt => sumTailAux(xt, z + x)
+    // log(s"sumTailAux($xs, $z)"):
+    xs match
+      case Nil     => z
+      case x :: xt => sumTailAux(xt, z + x)
 
   def sumTail(xs: List[Int]): Int =
-    // TODO: Replace ??? your answer.
-    ???
-
+    sumTailAux(xs, 0)
 
   // EXERCISE 5: complete the following definition of the function "max" that
   // finds the maximum integer in a list of integers.
@@ -159,8 +159,12 @@ object fp1:
   // on integers: That is, you cannot use (xs.max) or similar.  But you can
   // use (1 max 2).
   def maxList(xs: List[Int]): Int =
-    // TODO: Replace ??? your answer.
-    ???
+    xs match
+      case Nil => throw new java.util.NoSuchElementException
+      case y :: ys =>
+        ys match
+          case Nil => y
+          case _   => y max (maxList(ys))
 
   // EXERCISE 6: given the definition of the function "maxTail" below,
   // complete the definition of the function "maxTailAux" so that "maxTail"
@@ -168,8 +172,9 @@ object fp1:
   //
   // You must not alter the definition of "maxTail".
   def maxTailAux(xs: List[Int], z: Int): Int =
-    // TODO: Replace ??? your answer.
-    ???
+    xs match
+      case Nil     => z
+      case x :: xt => maxTailAux(xt, z max x)
 
   def maxTail(xs: List[Int]): Int =
     xs match
@@ -179,33 +184,47 @@ object fp1:
   // EXERCISE 7: Write a function "zip" that takes two lists and creates a new
   // list by pairing up elements from the two input lists.  If one input list
   // is longer than the other, the extra elements should be ignored.
-  def zip(xs:List[Int], ys:List[String]) : List[(Int,String)] =
-    // TODO: Replace ??? your answer.
-    ???
+  def zip(xs: List[Int], ys: List[String]): List[(Int, String)] =
+    xs match
+      case Nil => Nil
+      case x :: xt =>
+        ys match
+          case Nil     => Nil
+          case y :: yt => (x, y) :: zip(xt, yt)
 
   // EXERCISE 8: Write a function "insert" that takes an integer "i" and a
   // list of integers "xs", and returns a new list with "i" inserted into "xs".
   // Assume that "xs" is sorted in increasing order.  The resulting list
   // should also be sorted in increasing order.
-  def insert(i:Int, xs:List[Int]) : List[Int] =
-    // TODO: Replace ??? your answer.
-    ???
+  def insert(i: Int, xs: List[Int]): List[Int] =
+    xs match
+      case Nil => List(i)
+      case x :: xt =>
+        if i <= x then i :: xs
+        else x :: insert(i, xt)
 
   // EXERCISE 9: Write a function "merge" that takes two lists of integers
   // that are sorted in increasing order, and returns a new list that merges
   // the two lists into a single list that is sorted in increasing order.
-  def merge(xs:List[Int], ys:List[Int]) : List[Int] =
-    // TODO: Replace ??? your answer.
-    ???
+  def merge(xs: List[Int], ys: List[Int]): List[Int] =
+    xs match
+      case Nil => ys
+      case x :: xt =>
+        ys match
+          case Nil => xs
+          case y :: yt =>
+            if x <= y then x :: merge(xt, ys)
+            else y :: merge(xs, yt)
 
   // EXERCISE 10: given the definition of the function "reverseTail" below,
   // complete the definition of the function "reverseTailAux" so that "reverseTail"
   // returns the reverse of xs.
   //
   // You must not alter the definition of "reverseTail".
-  def reverseTailAux(xs:List[Int], zs:List[Int]) : List[Int] =
-    // TODO: Replace ??? your answer.
-    ???
+  def reverseTailAux(xs: List[Int], zs: List[Int]): List[Int] =
+    xs match
+      case Nil     => zs
+      case x :: xt => reverseTailAux(xt, x :: zs)
 
-  def reverseTail(xs:List[Int]) =
+  def reverseTail(xs: List[Int]) =
     reverseTailAux(xs, Nil)
