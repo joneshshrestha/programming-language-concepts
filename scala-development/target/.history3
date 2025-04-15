@@ -21,3 +21,10 @@
 1744557305648:map(List(1,2,3))
 1744557318824:map(List[1,2,3])
 1744557339435:console
+1744586443572:sbt
+1744586447164:exit
+1744586477200:testOnly fp2tests
+1744586495753:testOnly fp3tests
+1744586504486:testOnly fp2tests
+1744587284878:val myList:List[(Int,Int)] = List( (1,2), (3,4), (5,6) )
+1744587315602:console
