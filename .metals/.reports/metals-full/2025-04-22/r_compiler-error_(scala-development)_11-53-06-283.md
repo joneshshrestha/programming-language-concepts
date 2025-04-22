@@ -1,3 +1,16 @@
+file://<WORKSPACE>/scala-development/src/main/scala/fp3.scala
+### scala.MatchError: TypeDef(X,TypeBoundsTree(EmptyTree,EmptyTree,EmptyTree)) (of class dotty.tools.dotc.ast.Trees$TypeDef)
+
+occurred in the presentation compiler.
+
+presentation compiler configuration:
+
+
+action parameters:
+offset: 5265
+uri: file://<WORKSPACE>/scala-development/src/main/scala/fp3.scala
+text:
+```scala
 // GENERATED
 /* INSTRUCTIONS
  *
@@ -37,7 +50,6 @@
  * 3. You may submit multiple times.  I will grade the LAST submission.
  *
  */
-import fp2.foldRight
 
 object fp3:
 
@@ -139,13 +151,7 @@ object fp3:
   //              == List (1,2,3,4,5,6,7,8,9,2,9)
   def removeDupes1[X](xs: List[X]): List[X] =
     // TODO: Replace ??? your answer.
-    xs.foldRight(List.empty[X]) {
-      // x = current, (y = head, xt = tail) = accumulator
-      case (x, y :: xt) =>
-        if x == y then y :: xt
-        else x :: y :: xt
-      case (x, Nil) => List(x) // create initial list
-    }
+ x@@
 
   // EXERCISE 8: write a function "removeDupes2" that behaves like
   // "removeDupes1", but also includes a count of the number of consecutive
@@ -158,12 +164,7 @@ object fp3:
   //              == List ((2,1),(1,2),(3,3),(2,4),(1,5),(1,6),(2,7),(1,8),(1,9),(3,2),(1,9))
   def removeDupes2[X](xs: List[X]): List[(Int, X)] =
     // TODO: Replace ??? your answer.
-    xs.foldRight(List.empty[(Int, X)]) {
-      case (x, (count, y) :: xt) =>
-        if x == y then (count + 1, y) :: xt
-        else (1, x) :: (count, y) :: xt
-      case (x, Nil) => List((1, x))
-    }
+    ???
 
   // EXERCISE 9: complete the following definition of a function that splits
   // a list into a pair of two lists.  The offset for the the split position
@@ -189,19 +190,15 @@ object fp3:
   // Your definition of "splitAt" must be recursive and must not use "take"
   // or "drop".
   //
-  // Your definition of "splitAt" must only traverse the list once.  So you
+  // Your definition of "splitAt" must only travere the list once.  So you
   // cannot define your own versions of "take"/"drop" and use them (because
   // that would entail one traversal of the list with "take" and then a
   // second traversal with "drop").
   //
 
   def splitAt[X](n: Int, xs: List[X]): (List[X], List[X]) =
-    (n, xs) match
-      case (_, Nil)          => (Nil, Nil)
-      case (n, xs) if n <= 0 => (Nil, xs)
-      case (n, x :: xt) =>
-        val (list1, list2) = splitAt(n - 1, xt)
-        (x :: list1, list2)
+    // TODO: Replace ??? your answer.
+    ???
 
   // EXERCISE 10: complete the following definition of an "allDistinct"
   // function that checks whether all values in list are distinct.  You
@@ -217,3 +214,22 @@ object fp3:
   def allDistinct(xs: List[Int]): Boolean =
     // TODO: Replace ??? your answer.
     ???
+
+```
+
+
+
+#### Error stacktrace:
+
+```
+dotty.tools.pc.completions.KeywordsCompletions$.checkTemplateForNewParents$$anonfun$2(KeywordsCompletions.scala:218)
+	scala.Option.map(Option.scala:242)
+	dotty.tools.pc.completions.KeywordsCompletions$.checkTemplateForNewParents(KeywordsCompletions.scala:215)
+	dotty.tools.pc.completions.KeywordsCompletions$.contribute(KeywordsCompletions.scala:44)
+	dotty.tools.pc.completions.Completions.completions(Completions.scala:126)
+	dotty.tools.pc.completions.CompletionProvider.completions(CompletionProvider.scala:135)
+	dotty.tools.pc.ScalaPresentationCompiler.complete$$anonfun$1(ScalaPresentationCompiler.scala:150)
+```
+#### Short summary: 
+
+scala.MatchError: TypeDef(X,TypeBoundsTree(EmptyTree,EmptyTree,EmptyTree)) (of class dotty.tools.dotc.ast.Trees$TypeDef)

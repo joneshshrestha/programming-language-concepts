@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException
+import scala.compiletime.ops.boolean
 object fp1:
 
   // Here is a utility function for logging recursive functions.
@@ -191,3 +192,30 @@ object fp1:
 
   def reverseTail(xs: List[Int]) =
     reverseTailAux(xs, Nil)
+
+  def printList[X](xs: List[X]): Unit =
+    var tmp = xs
+    while tmp != Nil do
+      print(tmp.head)
+      tmp = tmp.tail
+
+  def highord(xs: List[Int]): Unit =
+    xs.foreach(x => print(x))
+
+  def square(xs: List[Int]) =
+    xs.map(x => x * x)
+
+  def odd(xs: List[Int]) =
+    xs.filter(x => x % 2 != 0)
+
+  def greaterfive(xs: List[Int]): Option[Int] =
+    xs.find((x: Int) => x >= 5)
+
+  def countfive(xs: List[Int]): Int =
+    xs.count((x: Int) => x >= 5)
+
+  def bool(xs: List[Int]): Boolean =
+    xs.exists((x: Int) => x >= 5)
+
+  def newfun(xs: List[Int]): Boolean =
+    xs.forall((x: Int) => x >= 5)

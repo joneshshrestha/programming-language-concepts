@@ -28,3 +28,5 @@
 1744586504486:testOnly fp2tests
 1744587284878:val myList:List[(Int,Int)] = List( (1,2), (3,4), (5,6) )
 1744587315602:console
+1745085279573:consolr
+1745085282346:console
