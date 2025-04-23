@@ -53,7 +53,6 @@ object fp3:
   // - member (5, List (4, 6, 8, 5)) == true
   // - member (3, List (4, 6, 8, 5)) == false
   def member(a: Int, xs: List[Int]): Boolean =
-    // TODO: Replace ??? your answer.
     xs match
       case Nil => false
       case x :: xt =>
@@ -71,7 +70,6 @@ object fp3:
   // - allEqual (List (5, 5, 6, 5)) == false
   // - allEqual (List (5, 5, 5, 6)) == false
   def allEqual(xs: List[Int]): Boolean =
-    // TODO: Replace ??? your answer.
     xs match
       case Nil      => true
       case _ :: Nil => true
@@ -89,7 +87,6 @@ object fp3:
   //
   // You can use the "map" method of the List class.
   def stringLengths(xs: List[String]): List[(String, Int)] =
-    // TODO: Replace ??? your answer.
     xs.map((x: String) => (x, x.length))
 
   // EXERCISE 4: complete the function definition for "delete1" that takes
@@ -102,7 +99,6 @@ object fp3:
   // - delete1 ("the", List ("the","the","was","a","product","of","the","1980s"))
   //                == List ("was","a","product","of","1980s")
   def delete1[X](a: X, xs: List[X]): List[X] =
-    // TODO: Replace ??? your answer.
     xs match
       case Nil => Nil
       case x :: xt =>
@@ -115,7 +111,6 @@ object fp3:
   // It must be written using "for comprehensions" and not use recursion
   // explicitly.
   def delete2[X](a: X, xs: List[X]): List[X] =
-    // TODO: Replace ??? your answer.
     for x <- xs if x != a yield x
 
   // EXERCISE 6: complete the function definition for "delete3" below.  It
@@ -124,7 +119,6 @@ object fp3:
   // It must be written using the builtin "filter" method for Lists and not
   // use recursion explicitly.
   def delete3[X](a: X, xs: List[X]): List[X] =
-    // TODO: Replace ??? your answer.
     xs.filter((y => y != a))
 
   // EXERCISE 7: complete the function definition for "removeDupes1" below.
@@ -138,7 +132,6 @@ object fp3:
   // - removeDupes1 (List (1,1,2,3,3,3,4,4,5,6,7,7,8,9,2,2,2,9))
   //              == List (1,2,3,4,5,6,7,8,9,2,9)
   def removeDupes1[X](xs: List[X]): List[X] =
-    // TODO: Replace ??? your answer.
     xs.foldRight(List.empty[X]) {
       // x = current, (y = head, xt = tail) = accumulator
       case (x, y :: xt) =>
@@ -157,7 +150,6 @@ object fp3:
   // - removeDupes2 (List (1,1,2,3,3,3,4,4,5,6,7,7,8,9,2,2,2,9))
   //              == List ((2,1),(1,2),(3,3),(2,4),(1,5),(1,6),(2,7),(1,8),(1,9),(3,2),(1,9))
   def removeDupes2[X](xs: List[X]): List[(Int, X)] =
-    // TODO: Replace ??? your answer.
     xs.foldRight(List.empty[(Int, X)]) {
       case (x, (count, y) :: xt) =>
         if x == y then (count + 1, y) :: xt
@@ -214,6 +206,11 @@ object fp3:
   // - allDistinct (List (1,2,3,4,5)) == true
   // - allDistinct (List (1,2,3,4,5,1)) == false
   // - allDistinct (List (1,2,3,2,4,5)) == false
+
+  //  member (5, List (4, 6, 8, 5)) == true
   def allDistinct(xs: List[Int]): Boolean =
-    // TODO: Replace ??? your answer.
-    ???
+    xs match
+      case x :: xt =>
+        if member(x, xt) then false
+        else allDistinct(xt)
+      case Nil => true
