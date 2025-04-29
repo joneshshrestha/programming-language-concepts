@@ -1,12 +1,12 @@
-  // GENERATED
+// GENERATED
 /* INSTRUCTIONS
  *
  * Complete the exercises below.  For each "EXERCISE" comment, add code
  * immediately below the comment.
  *
  * Please see README.md for instructions, including compilation and testing.
- * See fp3tests.scala for examples of the expected behavior.  Note that the 
- * tests are not exhaustive -- your code may still be incorrect even if all 
+ * See fp3tests.scala for examples of the expected behavior.  Note that the
+ * tests are not exhaustive -- your code may still be incorrect even if all
  * tests pass.  But passing the tests is a good sign that you are on the right
  * track.
  *
@@ -23,9 +23,9 @@
  * 3. You MUST NOT use while loops. You must use recursion
  *    instead.  You may declare auxiliary functions if you like. This assignment
  *    requires mutable state, so you MAY use "var" declarations.
- * 
+ *
  * 4. You MUST NOT alter any of the provided code, except for the parts explicitly
- *    marked ???.  You may ADD methods (including a main method, if you like).  
+ *    marked ???.  You may ADD methods (including a main method, if you like).
  *    But don't change the signature of provided functions, or remove them.
  *
  * SUBMISSION
@@ -33,27 +33,26 @@
  * 1. Submit this file on D2L before the deadline.
  *
  * 2. Late submissions will not be permitted.
- * 
+ *
  * 3. You may submit multiple times.  I will grade the LAST submission.
  *
  */
+import java.sql.Ref
 
 object fp4:
 
   // Feel free to copy the log function from the fp1.
-  
+
   // EXERCISE 1: Complete the following definition, so that "constant5" is a
   // function that returns 5 whenever it is invoked.
   val constant5: () => Int =
-    // TODO: Replace ??? your answer.
-    () => ???
+    () => 5
 
   // EXERCISE 2: Complete the following definition, so that "constant" is a
   // function that when invoked with integer n returns a function that
   // returns n whenever it is invoked.
   val constant: Int => () => Int =
-    // TODO: Replace ??? your answer.
-    (n: Int) => ???
+    (n: Int) => () => n
 
   // EXERCISE 3: Complete the following definition, so that "counter0" is a
   // (stateful) function that returns 0 when it is first invoked, then 1,
@@ -64,8 +63,11 @@ object fp4:
 
   // This rule applies throughout this assignment.
   val counter0: () => Int =
-    // TODO: Replace ??? your answer.
-    () => ???
+    var count = 0
+    () =>
+      val current = count
+      count += 1
+      current
 
   // EXERCISE 4: Complete the following definition, so that "counter" is a
   // (stateless) function that when invoked with integer n returns a
@@ -76,8 +78,12 @@ object fp4:
   // should yield two functions that do not interfere with one another's
   // state.
   val counter: Int => () => Int =
-    // TODO: Replace ??? your answer.
-    (n: Int) => ???
+    (n: Int) =>
+      var count = n
+      () =>
+        val current = count
+        count += 1
+        current
 
   // EXERCISE 5: Complete the following definition, so that "getAndSet" is a
   // (stateless) function that when invoked with integer n returns a pair of
@@ -94,8 +100,11 @@ object fp4:
   // first pair returned should not share any state with the second pair
   // returned.
   val getAndSet: Int => (() => Int, Int => Unit) =
-    // TODO: Replace ??? your answer.
-    (n: Int) => ???
+    (n: Int) =>
+      var state = n
+      val get = () => state
+      val set = (x: Int) => state = x
+      (get, set)
 
   // EXERCISE 6: Complete the following definition, so that "getAndSetSpy" is
   // a (stateful) function that when invoked it returns a pair.
@@ -123,9 +132,17 @@ object fp4:
   // The result is 2, not 1.
   //
   val getAndSetSpy: () => (() => Int, Int => (() => Int, Int => Unit)) =
-    // TODO: Replace ??? your answer.
-    () => ???
-
+    var count = 0
+    () =>
+      val spy = () => count
+      val getAndSet = (n: Int) =>
+        var state = n
+        val get = () => state
+        val set = (x: Int) =>
+          count += 1
+          state = x
+        (get, set)
+      (spy, getAndSet)
 
   class RefInt(initial: Int):
     private var n: Int = initial
@@ -144,12 +161,18 @@ object fp4:
   // order that they came back from calls, i.e., the integer from the first
   // call to f is the first integer in the returned tuple.
   def refint1(f: RefInt => Unit): (Int, Int, Int) =
-    // TODO: Replace ??? your answer.
     // Example call:
     // val r = RefInt (0)
     // f (r)
     // val n : Int = r.get()
-    ???
+    val r = RefInt(0)
+    f(r)
+    val first = r.get()
+    f(r)
+    val second = r.get()
+    f(r)
+    val third = r.get()
+    (first, second, third)
 
   // EXERCISE 8: complete the following higher-order function.  It has one
   // parameter f: a function that takes an instance of RefInt (see above for
@@ -166,8 +189,13 @@ object fp4:
   // order that they came back from calls, i.e., the integer from the first
   // call to f is the first integer in the returned tuple.
   def refint2(f: RefInt => Unit): (Int, Int, Int) =
-    // TODO: Replace ??? your answer.
-    ???
+    val r1 = RefInt(0)
+    val r2 = RefInt(0)
+    val r3 = RefInt(0)
+    f(r1)
+    f(r2)
+    f(r3)
+    (r1.get(), r2.get(), r3.get())
 
   // EXERCISE 9: complete the following function.  It has one parameter r: (a
   // reference to) an instance of RefInt (see above for the definition of the
@@ -177,8 +205,10 @@ object fp4:
   // double the original value (stored in a separate RefInt instance) as the
   // result.
   def refint3(r: RefInt): RefInt =
-    // TODO: Replace ??? your answer.
-    ???
+    val originalValue = r.get()
+    r.set(originalValue + 1)
+    val result = RefInt(originalValue * 2)
+    result
 
   // EXERCISE 10: complete the following function.
   // It has two parameters
@@ -192,5 +222,6 @@ object fp4:
   // Your code should return true if f has NOT changed the Int stored in the
   // copy of r.  Otherwise it should return false.
   def refint4(r: RefInt, f: RefInt => Unit): Boolean =
-    // TODO: Replace ??? your answer.
-    ???
+    val copy = RefInt(r.get())
+    f(copy)
+    copy.get() == r.get()

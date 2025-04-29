@@ -1,5 +1,6 @@
 import java.util.NoSuchElementException
 import scala.compiletime.ops.boolean
+import scala.annotation.tailrec
 object fp1:
 
   // Here is a utility function for logging recursive functions.
@@ -219,3 +220,11 @@ object fp1:
 
   def newfun(xs: List[Int]): Boolean =
     xs.forall((x: Int) => x >= 5)
+
+  import annotation.tailrec
+
+  @tailrec
+  def tail_recursion(n: Int): Unit =
+    if n <= 4 then
+      println(s"${n} potato")
+      tail_recursion(n + 1)

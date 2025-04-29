@@ -1,5 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E040] Syntax Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp3.scala:137:24 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m137 |[0m      [33mcase[0m (x, y :: xt) =[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                        ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                        '=>' expected, but '=' found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp4.scala:200:5 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m200 |[0m    f(r3)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m    ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    Found:    Unit[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    Required: (Int, Int, Int)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
