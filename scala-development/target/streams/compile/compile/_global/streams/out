@@ -1,8 +1,23 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp4.scala:200:5 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m200 |[0m    f(r3)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m    ^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    Found:    Unit[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    Required: (Int, Int, Int)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E018] Syntax Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp2-exam.scala:106:60 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m106 |[0m  [33mdef[0m [36mfoldLeft[0m[[35mA[0m, [35mB[0m]([36mxs[0m: [35mList[0m[[35mA[0m], [36mz[0m: [35mB[0m, [36mf[0m: ([35mB[0m, [35mA[0m) => [35mB[0m): [35mB[0m =[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                                                            ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                                     expression expected but [31mdef[0m found[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E040] Syntax Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp2-exam.scala:185:0 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m185 |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0meof expected, but unindent found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp2-exam.scala:184:4 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m184 |[0m    firstIndex(xs, [31m0[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m    ^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    Not found: firstIndex[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /Users/joneshshrestha/Desktop/GitHub/programming-language-concepts/scala-development/src/main/scala/fp2-exam.scala:184:15 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m184 |[0m    firstIndex(xs, [31m0[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m               ^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m               Not found: xs[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
