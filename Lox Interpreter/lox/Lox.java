@@ -1,7 +1,6 @@
 package com.craftinginterpreters.lox;
 
 import java.io.BufferedReader;
-import java.io.IO;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -12,7 +11,7 @@ import java.util.List;
 public class Lox {
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
-            // error handling
+            // error handling`
             System.out.println("Usage: jlox [script]");
             System.exit(64);
         } else if (args.length == 1) {
@@ -30,6 +29,25 @@ public class Lox {
 
     // fire up REPL
     private static void runPrompt() throws IOException {
-        Input
+        InputStreamReader input = new InputStreamReader(System.in);
+        BufferedReader reader = new BufferedReader(input);
+
+        // loop forever until break
+        for (;;) {
+            System.out.print("> ");
+            String line = reader.readLine();
+            if (line == null)
+                break;
+            run(line);
+        }
+    }
+
+    private static void run(String source) {
+        Scanner scanner = new Scanner(source);
+        List<Token> tokens = scanner.scanTokens();
+
+        for (Token token : tokens) {
+            System.out.println(token);
+        }
     }
 }
