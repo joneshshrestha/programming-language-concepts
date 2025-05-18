@@ -21,7 +21,7 @@ class Scanner {
     List<Token> scanTokens() {
         while (!isAtEnd()) {
             start = current;
-            scanTokens();
+            scanToken();
         }
 
         tokens.add(new Token(EOF, "", null, line));
@@ -61,7 +61,31 @@ class Scanner {
             case '*':
                 addToken(STAR);
                 break;
+            case '!':
+                addToken(match('=') ? BANG_EQUAL : BANG);
+                break;
+            case '=':
+                addToken(match('=') ? EQUAL_EQUAL : EQUAL);
+                break;
+            case '<':
+                addToken(match('=') ? LESS_EQUAL : LESS);
+                break;
+            case '>':
+                addToken(match('=') ? GREATER_EQUAL : GREATER);
+            default:
+                Lox.error(line, "Unexpected character.");
+                break;
         }
+    }
+
+    private boolean match(char expected) {
+        if (isAtEnd())
+            return false;
+        if (source.charAt(current) != expected)
+            return false;
+
+        current++;
+        return true;
     }
 
     private boolean isAtEnd() {
@@ -69,6 +93,7 @@ class Scanner {
     }
 
     private char advance() {
+        // return current and increment current by 1
         return source.charAt(current++);
     }
 
