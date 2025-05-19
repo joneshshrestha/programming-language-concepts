@@ -72,9 +72,48 @@ class Scanner {
                 break;
             case '>':
                 addToken(match('=') ? GREATER_EQUAL : GREATER);
+                break;
+            case '/':
+                if (match('/')) {
+                    while (peek() != '\n' && !isAtEnd())
+                        advance();
+                } else if (match('*')) {
+                    nestedComment();
+                } else {
+                    addToken(SLASH);
+                }
+                break;
+            case ' ':
+            case '\r':
+            case '\t':
+                break;
+            case '\n':
+                line++;
+                break;
             default:
                 Lox.error(line, "Unexpected character.");
                 break;
+        }
+    }
+
+    private void nestedComment() {
+        var nested = 1;
+        while (!isAtEnd() && nested > 0) {
+            char c = advance();
+            if (c == '\n') {
+                line++;
+            }
+            if (c == '/' && match('*')) {
+                nested++;
+            } else if (c == '*' && match('/')) {
+                nested--;
+                if (nested == 0) {
+                    return;
+                }
+            }
+        }
+        if (isAtEnd() && nested > 0) {
+            Lox.error(line, "Nested comment not terminated properly.");
         }
     }
 
@@ -86,6 +125,13 @@ class Scanner {
 
         current++;
         return true;
+    }
+
+    private char peek() {
+        if (isAtEnd())
+            return '\0';
+        // current is already incremented by advance
+        return source.charAt(current);
     }
 
     private boolean isAtEnd() {
